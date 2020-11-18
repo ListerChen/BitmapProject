@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <Button
+        android:id="@+id/btn_crop_bitmap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="裁剪图片"/>
+
+    <Button
+        android:id="@+id/btn_joint_bitmap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="拼接图片"/>
+
+    <Button
+        android:id="@+id/btn_compress_bitmap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="压缩图片保存"/>
+
+    <Button
+        android:id="@+id/btn_bitmap_matrix"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bitmap矩阵变化"/>
+
+    <Button
+        android:id="@+id/btn_bitmap_color"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Bitmap色彩变化"/>
+
+    <Button
+        android:id="@+id/btn_bitmap_xfermode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="图像混合"/>
+
+</LinearLayout>
