@@ -24,11 +24,10 @@ public class XFermodeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_x_fermode);
-
-        // modeTest();
+        porterDuffModeTest();
     }
 
-    private void modeTest() {
+    private void porterDuffModeTest() {
         mContainer = findViewById(R.id.mode_linear_layout);
         mContainer.post(new Runnable() {
             @Override

@@ -16,6 +16,10 @@ import androidx.annotation.Nullable;
 import com.lister.bitmapproject.BitmapUtils;
 import com.lister.bitmapproject.R;
 
+/**
+ * 图片裁剪为五角星
+ * 用于裁剪的底图在五角星外的区域必须是透明的
+ */
 public class StarPicView extends View {
 
     private Paint mPaint;

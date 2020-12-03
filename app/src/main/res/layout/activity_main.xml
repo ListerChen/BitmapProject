@@ -41,6 +41,12 @@
         android:id="@+id/btn_bitmap_xfermode"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="图像混合"/>
+        android:text="图像混合介绍"/>
+
+    <Button
+        android:id="@+id/btn_bitmap_xfermode_example"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="图像混合实例"/>
 
 </LinearLayout>

@@ -17,44 +17,47 @@ import com.lister.bitmapproject.BitmapUtils;
 import com.lister.bitmapproject.R;
 
 /**
- * 图片裁剪为圆角矩形
+ * 毛玻璃效果
  */
-public class RoundCornerView extends View {
+public class BlurComposeView extends View {
 
     private Paint mPaint;
-    private PorterDuffXfermode mFerMode;
+    private PorterDuffXfermode mMode;
+    private int mWidth, mHeight;
+    private Bitmap mComposeBitmap;
     private Bitmap mBitmap;
-    private Rect mBitmapRect;
-    private int mWidth;
-    private int mHeight;
+    private Rect mRect;
 
-    public RoundCornerView(Context context) {
+    public BlurComposeView(Context context) {
         this(context, null);
     }
 
-    public RoundCornerView(Context context, @Nullable AttributeSet attrs) {
+    public BlurComposeView(Context context, @Nullable AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public RoundCornerView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public BlurComposeView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init();
     }
 
     private void init() {
+        setLayerType(LAYER_TYPE_SOFTWARE, null);
         mPaint = new Paint(Paint.ANTI_ALIAS_FLAG);
-        mFerMode = new PorterDuffXfermode(PorterDuff.Mode.SRC_IN);
+        mMode = new PorterDuffXfermode(PorterDuff.Mode.OVERLAY);
     }
 
     @Override
     protected void onSizeChanged(int w, int h, int oldw, int oldh) {
         super.onSizeChanged(w, h, oldw, oldh);
-        if (mWidth != w || mHeight != h) {
+        if (w != mWidth || h != mHeight) {
             mWidth = w;
             mHeight = h;
+            mComposeBitmap = BitmapUtils.decodeSampledBitmapFromResource(
+                    getResources(), R.drawable.blur2, mWidth, mHeight);
             mBitmap = BitmapUtils.decodeSampledBitmapFromResource(
-                    getContext().getResources(), R.drawable.compress_test, mWidth, mHeight);
-            mBitmapRect = new Rect(0, 0, mWidth, mHeight);
+                    getResources(), R.drawable.compress_test, mWidth, mHeight);
+            mRect = new Rect(0, 0, mWidth, mHeight);
             invalidate();
         }
     }
@@ -63,11 +66,10 @@ public class RoundCornerView extends View {
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
         int sc = canvas.saveLayer(0, 0, mWidth, mHeight, null);
-        canvas.drawRoundRect(0, 0, mWidth, mHeight, 50, 50, mPaint);
-        mPaint.setXfermode(mFerMode);
-        canvas.drawBitmap(mBitmap, null, mBitmapRect, mPaint);
+        canvas.drawBitmap(mComposeBitmap, null, mRect, mPaint);
+        mPaint.setXfermode(mMode);
+        canvas.drawBitmap(mBitmap, null, mRect, mPaint);
         mPaint.setXfermode(null);
         canvas.restoreToCount(sc);
     }
-
 }

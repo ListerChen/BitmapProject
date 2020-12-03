@@ -14,6 +14,7 @@ import com.lister.bitmapproject.compress.CompressActivity;
 import com.lister.bitmapproject.crop.ChangeIconActivity;
 import com.lister.bitmapproject.joint.JointBitmapActivity;
 import com.lister.bitmapproject.matrix.BitmapMatrixActivity;
+import com.lister.bitmapproject.xfermode.XFerModeExampleActivity;
 import com.lister.bitmapproject.xfermode.XFermodeActivity;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
@@ -32,6 +33,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         findViewById(R.id.btn_bitmap_matrix).setOnClickListener(this);
         findViewById(R.id.btn_bitmap_color).setOnClickListener(this);
         findViewById(R.id.btn_bitmap_xfermode).setOnClickListener(this);
+        findViewById(R.id.btn_bitmap_xfermode_example).setOnClickListener(this);
 
         requestStoragePermission();
     }
@@ -56,6 +58,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
             case R.id.btn_bitmap_xfermode:
                 startActivity(new Intent(this, XFermodeActivity.class));
+                break;
+            case R.id.btn_bitmap_xfermode_example:
+                startActivity(new Intent(this, XFerModeExampleActivity.class));
                 break;
         }
     }

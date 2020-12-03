@@ -13,6 +13,9 @@ import android.view.View;
 
 import androidx.annotation.Nullable;
 
+/**
+ * 用于测试PorterDuffXfermode效果的View
+ */
 public class XFerModeView extends View {
 
     private Paint mPaint;

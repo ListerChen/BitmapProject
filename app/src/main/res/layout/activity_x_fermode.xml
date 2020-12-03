@@ -8,22 +8,4 @@
     android:orientation="vertical"
     tools:context=".xfermode.XFermodeActivity">
 
-    <com.lister.bitmapproject.xfermode.RoundCornerView
-        android:layout_width="150dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"/>
-
-    <com.lister.bitmapproject.xfermode.StarPicView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"/>
-
-    <com.lister.bitmapproject.xfermode.ComposeView
-        android:layout_width="300dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp" />
-
 </LinearLayout>
